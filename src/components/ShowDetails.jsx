@@ -30,7 +30,18 @@ export default function ShowDetails(props) {
       <div className="show-details-inner">
         <h1>{showInfo.name}</h1>
         <div className="description">{showInfo.overview}</div>
-        <button className="add-to-watchlist">+ Add to watch list</button>
+        <button
+          className={
+            props.watchList.includes(+showID)
+              ? "remove-to-watchlist"
+              : "add-to-watchlist"
+          }
+          onClick={() => props.handleWatchListToggle(+showID)}
+        >
+          {props.watchList.includes(+showID)
+            ? "- Remove from watch list"
+            : "+ Add to watch list"}
+        </button>
       </div>
     </div>
   );

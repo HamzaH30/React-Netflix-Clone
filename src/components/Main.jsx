@@ -38,6 +38,7 @@ export default function Main(props) {
             heading={provider}
             key={index}
             handleWatchListToggle={props.handleWatchListToggle}
+            watchList={props.watchList}
           />
         );
       })}

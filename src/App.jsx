@@ -44,6 +44,7 @@ function App() {
               baseURL={baseURL}
               apiKey={apiKey}
               handleWatchListToggle={handleWatchListToggle}
+              watchList={watchList}
             />
           }
         />
@@ -53,12 +54,19 @@ function App() {
             <Search
               apiKey={apiKey}
               handleWatchListToggle={handleWatchListToggle}
+              watchList={watchList}
             />
           }
         />
         <Route
           path="/details/:showID"
-          element={<ShowDetails apiKey={apiKey} />}
+          element={
+            <ShowDetails
+              apiKey={apiKey}
+              handleWatchListToggle={handleWatchListToggle}
+              watchList={watchList}
+            />
+          }
         />
       </Routes>
     </div>

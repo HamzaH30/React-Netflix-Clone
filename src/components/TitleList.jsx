@@ -10,8 +10,9 @@ export default function TitleList(props) {
             return (
               <Show
                 showInfo={show}
-                key={index}
+                key={show.id}
                 handleWatchListToggle={props.handleWatchListToggle}
+                inWatchList={props.watchList.includes(show.id)}
               />
             );
           })}

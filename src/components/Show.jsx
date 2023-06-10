@@ -20,7 +20,7 @@ export default function Show(props) {
           <div className="plot">{props.showInfo.overview}</div>
         </div>
       </Link>
-      <div data-toggled="false" className="listToggle">
+      <div data-toggled={`${props.inWatchList}`} className="listToggle">
         <div onClick={() => props.handleWatchListToggle(props.showInfo.id)}>
           <i className="fa fa-fw fa-plus"></i>
           <i className="fa fa-fw fa-check"></i>

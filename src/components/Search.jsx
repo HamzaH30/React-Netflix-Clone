@@ -24,6 +24,7 @@ export default function Search(props) {
       heading={"Results"}
       shows={showsData}
       handleWatchListToggle={props.handleWatchListToggle}
+      watchList={props.watchList}
     />
   );
 }
