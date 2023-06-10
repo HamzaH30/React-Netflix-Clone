@@ -33,7 +33,7 @@ export default function Main(props) {
       {tvShows.map((providerTvShows, index) => {
         const provider = Object.keys(watchProviders)[index];
         return (
-          <TitleList shows={providerTvShows} provider={provider} key={index} />
+          <TitleList shows={providerTvShows} heading={provider} key={index} />
         );
       })}
     </>
