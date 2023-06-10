@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.errorHeading {
+  margin-top: 50vh;
+  transform: translateY(-50%);
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+}
+
+.errorMessage {
+  text-align: center;
+  font-size: 1.25rem;
+}

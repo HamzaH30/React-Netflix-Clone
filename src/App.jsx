@@ -9,6 +9,9 @@ import WatchList from "./components/WatchList";
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 
+// Pagination
+import InvalidPage from "./components/pagination-related-part/InvalidPage";
+
 // Using environment variables for the api key
 const apiKey = process.env.REACT_APP_API_KEY;
 const baseURL = "https://api.themoviedb.org/3/";
@@ -19,6 +22,9 @@ function App() {
   const [watchList, setWatchList] = useState(
     JSON.parse(localStorage.getItem("watchList")) ?? []
   );
+
+  // Pagination
+  const [totalPages, setTotalPages] = useState(0);
 
   /**
    * This function will add or remove a show from the watch list.
@@ -67,6 +73,7 @@ function App() {
               baseURL={baseURL}
               handleWatchListToggle={handleWatchListToggle}
               watchList={watchList}
+              setTotalPages={setTotalPages}
             />
           }
         />
@@ -92,6 +99,10 @@ function App() {
               handleWatchListToggle={handleWatchListToggle}
             />
           }
+        />
+        <Route
+          path="/invalid-page"
+          element={<InvalidPage totalPages={totalPages} />}
         />
       </Routes>
     </div>
