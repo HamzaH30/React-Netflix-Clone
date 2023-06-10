@@ -44,7 +44,7 @@ a {
   box-sizing: border-box;
 }
 
-.titleList>.title {
+.titleList > .title {
   font-size: 24px;
   font-weight: 600;
   line-height: 1.4;
@@ -78,11 +78,13 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  background: -webkit-gradient(linear,
-      left top,
-      left bottom,
-      color-stop(0, rgba(0, 0, 0, 0.75)),
-      to(transparent));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, rgba(0, 0, 0, 0.75)),
+    to(transparent)
+  );
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.75), transparent);
   padding: 20px;
   pointer-events: none;
@@ -190,11 +192,13 @@ a {
 }
 
 .header {
-  background: -webkit-gradient(linear,
-      left top,
-      left bottom,
-      color-stop(0, #000),
-      to(transparent));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, #000),
+    to(transparent)
+  );
   background: linear-gradient(180deg, #000, transparent);
   display: flex;
   padding: 40px 40px 0;
@@ -205,7 +209,7 @@ a {
   top: 0;
 }
 
-.header+.titleList {
+.header + .titleList {
   margin-top: 140px;
 }
 
