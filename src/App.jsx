@@ -1,12 +1,12 @@
 import Main from "./components/Main";
 
 const apiKey = process.env.REACT_APP_API_KEY;
-const apiURL = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}`;
+const baseURL = "https://api.themoviedb.org/3/";
 
 function App() {
   return (
     <div className="App">
-      <Main />
+      <Main baseURL={baseURL} apiKey={apiKey} />
     </div>
   );
 }
