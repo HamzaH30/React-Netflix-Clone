@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {
+  Link,
+  createSearchParams,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 
 export default function Header() {
   const [inputValue, setInputValue] = useState("");
@@ -11,7 +16,10 @@ export default function Header() {
 
   function handleFormSubmission(event) {
     event.preventDefault();
-    navigate(`/search?showToSearch=${inputValue}`);
+
+    // TODO: Ask if this is what the requirements mean when needing to use search queries
+    const encodedValue = encodeURIComponent(inputValue);
+    navigate(`/search?show=${encodedValue}`);
   }
 
   return (

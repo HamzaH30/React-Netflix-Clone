@@ -14,7 +14,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main baseURL={baseURL} apiKey={apiKey} />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/search" element={<Search apiKey={apiKey} />} />
       </Routes>
     </div>
   );
