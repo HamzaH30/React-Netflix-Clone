@@ -3,7 +3,13 @@ import Header from "./Header";
 import TitleList from "./TitleList";
 
 export default function Main(props) {
-  const [tvShows, setTvShows] = useState();
+  const [tvShows, setTvShows] = useState([]);
+  const watchProviders = {
+    Netflix: 8,
+    Crave: 230,
+    Disney: 337,
+    "Apple Plus": 350,
+  };
 
   useEffect(() => {
     const fetchShows = async (watchProviderID) => {
@@ -12,13 +18,6 @@ export default function Main(props) {
       );
       const data = await response.json();
       return data.results;
-    };
-
-    const watchProviders = {
-      netflix: 8,
-      crave: 230,
-      disney: 337,
-      applePlus: 350,
     };
 
     const fetchPromises = [];
@@ -33,7 +32,12 @@ export default function Main(props) {
   return (
     <div>
       <Header />
-      <TitleList />
+      {tvShows.map((providerTvShows, index) => {
+        const provider = Object.keys(watchProviders)[index];
+        return (
+          <TitleList shows={providerTvShows} provider={provider} key={index} />
+        );
+      })}
     </div>
   );
 }

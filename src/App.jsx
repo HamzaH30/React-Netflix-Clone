@@ -1,3 +1,5 @@
+import "./styles/reset.css";
+import "./styles/style.css";
 import Main from "./components/Main";
 
 const apiKey = process.env.REACT_APP_API_KEY;
