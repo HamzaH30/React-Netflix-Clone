@@ -19,5 +19,11 @@ export default function Search(props) {
     fetchShowData();
   }, [showQuery]);
 
-  return <TitleList heading={"Results"} shows={showsData} />;
+  return (
+    <TitleList
+      heading={"Results"}
+      shows={showsData}
+      handleWatchListToggle={props.handleWatchListToggle}
+    />
+  );
 }

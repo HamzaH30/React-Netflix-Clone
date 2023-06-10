@@ -21,7 +21,7 @@ export default function Show(props) {
         </div>
       </Link>
       <div data-toggled="false" className="listToggle">
-        <div>
+        <div onClick={() => props.handleWatchListToggle(props.showInfo.id)}>
           <i className="fa fa-fw fa-plus"></i>
           <i className="fa fa-fw fa-check"></i>
         </div>

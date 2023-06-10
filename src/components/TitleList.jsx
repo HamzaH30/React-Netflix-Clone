@@ -6,8 +6,14 @@ export default function TitleList(props) {
       <div className="title">
         <h1>{props.heading}</h1>
         <div className="titles-wrapper">
-          {props.shows.map((show) => {
-            return <Show showInfo={show} />;
+          {props.shows.map((show, index) => {
+            return (
+              <Show
+                showInfo={show}
+                key={index}
+                handleWatchListToggle={props.handleWatchListToggle}
+              />
+            );
           })}
         </div>
       </div>
