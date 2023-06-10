@@ -1,10 +1,5 @@
 import { useState } from "react";
-import {
-  Link,
-  createSearchParams,
-  useNavigate,
-  useSearchParams,
-} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [inputValue, setInputValue] = useState("");

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import TitleList from "./TitleList";
 
 export default function Main(props) {
+  // Object of the providers and their TMDB API ID
   const watchProviders = {
     Netflix: 8,
     Crave: 230,
@@ -22,7 +23,6 @@ export default function Main(props) {
     for (let watchProvider in watchProviders) {
       fetchPromises.push(fetchShows(watchProviders[watchProvider]));
     }
-
     Promise.all(fetchPromises).then((showsData) => props.setTvShows(showsData));
   }, []);
 

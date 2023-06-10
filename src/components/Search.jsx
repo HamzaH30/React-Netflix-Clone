@@ -7,10 +7,11 @@ export default function Search(props) {
   const [searchParams] = useSearchParams();
   const showQuery = searchParams.get("show");
 
+  // Update the search data shown whenever the user enters in a new search
   useEffect(() => {
     const fetchShowData = async () => {
       const response = await fetch(
-        `https://api.themoviedb.org/3/search/tv?api_key=${props.apiKey}&query=${showQuery}`
+        `${props.baseURL}search/tv?api_key=${props.apiKey}&query=${showQuery}`
       );
       const data = await response.json();
       setShowsData(data.results);

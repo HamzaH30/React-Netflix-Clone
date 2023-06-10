@@ -5,10 +5,11 @@ export default function ShowDetails(props) {
   const { showID } = useParams();
   const [showInfo, setShowInfo] = useState([]);
 
+  // Get the specific information about this show
   useEffect(() => {
     const fetchShowInfo = async () => {
       const response = await fetch(
-        `https://api.themoviedb.org/3/tv/${showID}?api_key=${props.apiKey}`
+        `${props.baseURL}tv/${showID}?api_key=${props.apiKey}`
       );
       const data = await response.json();
       setShowInfo(data);

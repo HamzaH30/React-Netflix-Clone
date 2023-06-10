@@ -9,27 +9,35 @@ import WatchList from "./components/WatchList";
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 
+// Using environment variables for the api key
 const apiKey = process.env.REACT_APP_API_KEY;
 const baseURL = "https://api.themoviedb.org/3/";
 
 function App() {
+  // Includes all the tv shows from each provider.
   const [tvShows, setTvShows] = useState([]);
   const [watchList, setWatchList] = useState(
     JSON.parse(localStorage.getItem("watchList")) ?? []
   );
 
+  /**
+   * This function will add or remove a show from the watch list.
+   */
   function handleWatchListToggle(showIDSelected) {
     let copyWatchList = [...watchList];
     const showAlreadyAdded = copyWatchList.includes(showIDSelected);
 
     if (showAlreadyAdded) {
+      // Remove from watch list
       copyWatchList = copyWatchList.filter(
         (showID) => showID !== showIDSelected
       );
     } else {
+      // Add to watch list
       copyWatchList.push(showIDSelected);
     }
 
+    // Update useState & persist local storage
     setWatchList(copyWatchList);
     localStorage.setItem("watchList", JSON.stringify(copyWatchList));
   }
@@ -56,6 +64,7 @@ function App() {
           element={
             <Search
               apiKey={apiKey}
+              baseURL={baseURL}
               handleWatchListToggle={handleWatchListToggle}
               watchList={watchList}
             />
@@ -66,6 +75,7 @@ function App() {
           element={
             <ShowDetails
               apiKey={apiKey}
+              baseURL={baseURL}
               handleWatchListToggle={handleWatchListToggle}
               watchList={watchList}
             />
@@ -77,6 +87,8 @@ function App() {
             <WatchList
               watchList={watchList}
               tvShows={tvShows}
+              apiKey={apiKey}
+              baseURL={baseURL}
               handleWatchListToggle={handleWatchListToggle}
             />
           }
