@@ -14,7 +14,7 @@ export default function Header() {
 
     // TODO: Ask if this is what the requirements mean when needing to use search queries
     const encodedValue = encodeURIComponent(inputValue);
-    navigate(`/search?show=${encodedValue}`);
+    navigate(`/search?show=${encodedValue}&page=1`);
   }
 
   return (
