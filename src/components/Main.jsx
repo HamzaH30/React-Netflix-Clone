@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import TitleList from "./TitleList";
 
 export default function Main(props) {
-  const [tvShows, setTvShows] = useState([]);
   const watchProviders = {
     Netflix: 8,
     Crave: 230,
@@ -20,17 +19,16 @@ export default function Main(props) {
     };
 
     const fetchPromises = [];
-
     for (let watchProvider in watchProviders) {
       fetchPromises.push(fetchShows(watchProviders[watchProvider]));
     }
 
-    Promise.all(fetchPromises).then((showsData) => setTvShows(showsData));
+    Promise.all(fetchPromises).then((showsData) => props.setTvShows(showsData));
   }, []);
 
   return (
     <>
-      {tvShows.map((providerTvShows, index) => {
+      {props.tvShows.map((providerTvShows, index) => {
         const provider = Object.keys(watchProviders)[index];
         return (
           <TitleList

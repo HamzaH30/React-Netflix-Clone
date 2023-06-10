@@ -5,6 +5,7 @@ import Main from "./components/Main";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import ShowDetails from "./components/ShowDetails";
+import WatchList from "./components/WatchList";
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 
@@ -12,6 +13,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 const baseURL = "https://api.themoviedb.org/3/";
 
 function App() {
+  const [tvShows, setTvShows] = useState([]);
   const [watchList, setWatchList] = useState(
     JSON.parse(localStorage.getItem("watchList")) ?? []
   );
@@ -19,7 +21,6 @@ function App() {
   function handleWatchListToggle(showIDSelected) {
     let copyWatchList = [...watchList];
     const showAlreadyAdded = copyWatchList.includes(showIDSelected);
-    console.log(showAlreadyAdded);
 
     if (showAlreadyAdded) {
       copyWatchList = copyWatchList.filter(
@@ -45,6 +46,8 @@ function App() {
               apiKey={apiKey}
               handleWatchListToggle={handleWatchListToggle}
               watchList={watchList}
+              tvShows={tvShows}
+              setTvShows={setTvShows}
             />
           }
         />
@@ -65,6 +68,16 @@ function App() {
               apiKey={apiKey}
               handleWatchListToggle={handleWatchListToggle}
               watchList={watchList}
+            />
+          }
+        />
+        <Route
+          path="/my-watch-list"
+          element={
+            <WatchList
+              watchList={watchList}
+              tvShows={tvShows}
+              handleWatchListToggle={handleWatchListToggle}
             />
           }
         />
