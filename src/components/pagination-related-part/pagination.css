@@ -7,15 +7,19 @@
 .pagination-container {
   display: flex;
   justify-content: center;
+  margin: 0 0 2rem;
+  padding: 0 10rem;
+  gap: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin: 0 0 2rem;
 }
 
 .pagination-container button {
-  width: 30px;
-  height: 30px;
-
   font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
@@ -29,6 +33,28 @@
   transition: all 0.3s ease-in-out;
 }
 
-.pagination-container button:hover {
+.page-btn {
+  width: 30px;
+  height: 30px;
+}
+
+.page-btn:hover {
   border-color: rgb(255, 0, 0);
+}
+
+.navigate-pages {
+  width: auto;
+  height: auto;
+  padding: 0 1rem;
+}
+
+.navigate-pages:hover {
+  background-color: rgb(255, 0, 0);
+  border-color: rgb(255, 0, 0);
+}
+
+p {
+  font-family: inherit;
+  font-size: 1.5rem;
+  text-align: center;
 }
