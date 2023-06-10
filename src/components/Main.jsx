@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Header from "./Header";
 import TitleList from "./TitleList";
 
 export default function Main(props) {
@@ -30,14 +29,13 @@ export default function Main(props) {
   }, []);
 
   return (
-    <div>
-      <Header />
+    <>
       {tvShows.map((providerTvShows, index) => {
         const provider = Object.keys(watchProviders)[index];
         return (
           <TitleList shows={providerTvShows} provider={provider} key={index} />
         );
       })}
-    </div>
+    </>
   );
 }

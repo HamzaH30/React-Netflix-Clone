@@ -1,6 +1,19 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Header() {
+  const [inputValue, setInputValue] = useState("");
+  const [showToSearch, setShowToSearch] = useState("");
+
+  function handleInputChange(newText) {
+    setInputValue(newText);
+  }
+
+  function handleFormSubmission(event) {
+    event.preventDefault();
+    setShowToSearch(inputValue);
+  }
+
   return (
     <header className="header">
       <Link to="/">
@@ -19,8 +32,13 @@ export default function Header() {
           </ul>
         </nav>
       </div>
-      <form id="search" className="search">
-        <input type="search" placeholder="Search for a title..." value="" />
+      <form id="search" className="search" onSubmit={handleFormSubmission}>
+        <input
+          type="search"
+          placeholder="Search for a title..."
+          value={inputValue}
+          onChange={(event) => handleInputChange(event.target.value)}
+        />
         <div className="searchResults"></div>
       </form>
     </header>
