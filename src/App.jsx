@@ -3,6 +3,7 @@ import "./styles/style.css";
 import Main from "./components/Main";
 import Header from "./components/Header";
 import Search from "./components/Search";
+import ShowDetails from "./components/ShowDetails";
 import { Route, Routes } from "react-router-dom";
 
 const apiKey = process.env.REACT_APP_API_KEY;
@@ -15,6 +16,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Main baseURL={baseURL} apiKey={apiKey} />} />
         <Route path="/search" element={<Search apiKey={apiKey} />} />
+        <Route
+          path="/details/:showID"
+          element={<ShowDetails apiKey={apiKey} />}
+        />
       </Routes>
     </div>
   );
