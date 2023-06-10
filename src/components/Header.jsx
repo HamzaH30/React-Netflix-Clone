@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [inputValue, setInputValue] = useState("");
-  const [showToSearch, setShowToSearch] = useState("");
+  const navigate = useNavigate();
 
   function handleInputChange(newText) {
     setInputValue(newText);
@@ -11,7 +11,7 @@ export default function Header() {
 
   function handleFormSubmission(event) {
     event.preventDefault();
-    setShowToSearch(inputValue);
+    navigate(`/search?showToSearch=${inputValue}`);
   }
 
   return (
