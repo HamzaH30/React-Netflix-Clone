@@ -11,28 +11,26 @@ export default function Search(props) {
   // Pagination
   const [totalPages, setTotalPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(searchParams.get("page") ?? 1);
-  const [invalidPageEntered, setInvalidPageEntered] = useState(false);
+  const checkInvalidPageEntered = () => {
+    return Math.floor(currentPage) > totalPages;
+  };
 
   // Update the search data shown whenever the user enters in a new search
   useEffect(() => {
     const fetchShowData = async () => {
-      if (currentPage > 0) {
+      // invalidPageEntered = currentPage > totalPages && currentPage > 0;
+      if (currentPage > 0 && currentPage < 500) {
         const response = await fetch(
           `${props.baseURL}search/tv?api_key=${
             props.apiKey
           }&query=${showQuery}&page=${+currentPage}`
         );
+
         const data = await response.json();
         const totalPages = data["total_pages"];
         setTotalPages(totalPages);
 
-        if (currentPage > totalPages) {
-          setInvalidPageEntered(true);
-        } else {
-          setShowsData(data.results);
-        }
-      } else {
-        setInvalidPageEntered(true);
+        data.results && setShowsData(data.results);
       }
     };
 
@@ -53,7 +51,9 @@ export default function Search(props) {
         setCurrentPage={setCurrentPage}
         showQuery={showQuery}
         searchParams={searchParams}
-        invalidPageEntered={invalidPageEntered}
+        invalidPageEntered={
+          checkInvalidPageEntered() || currentPage <= 0 || currentPage > 500
+        }
       />
     </>
   );

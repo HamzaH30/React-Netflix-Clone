@@ -16,6 +16,7 @@ export default function Main(props) {
         `${props.baseURL}discover/tv?api_key=${props.apiKey}&sort_by=popularity.desc&watch_region=CA&with_watch_providers=${watchProviderID}`
       );
       const data = await response.json();
+
       return data.results;
     };
 
@@ -34,7 +35,7 @@ export default function Main(props) {
           <TitleList
             shows={providerTvShows}
             heading={provider}
-            key={index}
+            key={watchProviders[provider]}
             handleWatchListToggle={props.handleWatchListToggle}
             watchList={props.watchList}
           />

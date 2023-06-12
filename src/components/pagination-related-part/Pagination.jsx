@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import "./pagination.css";
 import { useNavigate } from "react-router-dom";
 
-// TODO: NEED TO ASK ABOUT CSS MODULES!! Not exactly sure if I have met that requirement
-
 export default function Pagination(props) {
   const [pages, setPages] = useState([]);
   const navigate = useNavigate();
@@ -30,7 +28,9 @@ export default function Pagination(props) {
       {props.invalidPageEntered ? (
         <>
           <p>Invalid Page Entered!</p>
-          {props.totalPages === 1 ? (
+          {props.currentPage <= 0 ? (
+            <p>Page entered must be a positive value.</p>
+          ) : props.totalPages === 1 ? (
             <p>There is only 1 page. Please only enter page 1.</p>
           ) : (
             <p>Pages must be between 1 - {props.totalPages}.</p>
