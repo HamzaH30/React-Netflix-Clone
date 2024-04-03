@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# Netflix Clone Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the GitHub repository for my React-based Netflix clone project! This project is a front-end web application that mimics the core features of Netflix, utilizing the TMDB (The Movie Database) API for dynamic, real-time movie and TV show data. It's designed to showcase my abilities in React development, API integration, and responsive web design, built as part of a school assignment.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+This Netflix clone includes several key features:
 
-### `npm start`
+- **Dynamic Data Loading**: Fetch and display movies and TV shows from TMDB API based on different categories and providers.
+- **Search Functionality**: Users can search for TV shows using TMDB's search API.
+- **Responsive Design**: The layout adjusts for a variety of screen sizes, ensuring a seamless experience on desktops, tablets, and mobile devices.
+- **TV Show Details**: Click on a show's poster to view its detailed page, including descriptions, ratings, and backdrop images.
+- **Watchlist Management**: Users can add shows to their watchlist, which is stored in localStorage for persistence across sessions.
+- **Provider-based Grouping**: Main page displays top TV shows grouped by providers like Netflix, Crave, Disney, and Apple Plus.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠 Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+Ensure you have the following installed:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js and npm
+- A text editor (e.g., VSCode)
+- A TMDB API key (Refer to the "API Key Setup" section below)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/HamzaH30/final-project-part-1.git
+cd final-project-part-1
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Install dependencies:**
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **API Key Setup:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Obtain an API Key from [TMDB's website](https://www.themoviedb.org/documentation/api).
+- Create a `.env.development` file in the project root.
+- Add your API key: `REACT_APP_API_KEY=your_api_key_here`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. **Start the development server:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm start
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📜 Available Scripts
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `npm start`: Runs the app in development mode.
+- `npm test`: Launches the test runner.
+- `npm run build`: Builds the app for production.
 
-### Code Splitting
+## 🛠 Project Details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Requirements
 
-### Analyzing the Bundle Size
+The app dynamically integrates with TMDB API to achieve the following:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Main Page (`/`)
 
-### Making a Progressive Web App
+- Displays top TV Shows grouped by providers: Netflix, Crave, Disney, and Apple Plus.
+- Fetches 20 most popular TV shows for each provider for the Canadian region using TMDB API's TV Discover endpoint.
+- Implements `Promise.all` for concurrent API requests.
+- Details page link for each show.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Search
 
-### Advanced Configuration
+- Controlled component search bar in the header.
+- Search results page showing TV shows matching the query.
+- Details page link for each show.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### TV Show Details
 
-### Deployment
+- Description, full backdrop, title, and watchlist management button.
+- Add or remove shows from the watchlist, reflected by a "+" or a red checkmark.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Watchlist Management
 
-### `npm run build` fails to minify
+- Hovering over a show's poster shows a "+" sign to add to the watchlist.
+- Shows in the watchlist display a red checkmark.
+- Watchlist is stored in `localStorage`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### My List (`/my-watch-list`)
+
+- Displays all TV shows added to the user's watchlist without specific sorting.
+
+This README aims to provide all necessary information to get started with the project, understand its features, and contribute.
