@@ -28,8 +28,8 @@ Ensure you have the following installed:
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/HamzaH30/final-project-part-1.git
-cd final-project-part-1
+git clone [https://github.com/HamzaH30/React-Netflix-Clone.git](https://github.com/HamzaH30/React-Netflix-Clone.git)
+cd React-Netflix-Clone
 ```
 
 2. **Install dependencies:**
